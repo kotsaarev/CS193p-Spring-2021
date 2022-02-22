@@ -62,11 +62,11 @@
 		0521831927BA2B79004BF7DE /* EmojiArt */ = {
 			isa = PBXGroup;
 			children = (
-				0521831A27BA2B79004BF7DE /* EmojiArtApp.swift */,
 				0521831C27BA2B79004BF7DE /* EmojiArtDocumentView.swift */,
-				0521832927BA2BE4004BF7DE /* EmojiArtModel.swift */,
 				0521832D27BA2F7F004BF7DE /* EmojiArtDocument.swift */,
+				0521832927BA2BE4004BF7DE /* EmojiArtModel.swift */,
 				0521832B27BA2E36004BF7DE /* EmojiArtModel.Background.swift */,
+				0521831A27BA2B79004BF7DE /* EmojiArtApp.swift */,
 				0521832F27BA3163004BF7DE /* UtilityExtensions.swift */,
 				0521833027BA3163004BF7DE /* UtilityViews.swift */,
 				0521831E27BA2B7E004BF7DE /* Assets.xcassets */,

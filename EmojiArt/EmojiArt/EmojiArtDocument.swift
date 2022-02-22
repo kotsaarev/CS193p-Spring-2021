@@ -19,12 +19,14 @@ class EmojiArtDocument: ObservableObject
     
     init() {
         emojiArt = EmojiArtModel()
-        emojiArt.addEmoji("😀", at: (-200, -100), size: 80)
-        emojiArt.addEmoji("😷", at: (50, 100), size: 40)
+//        emojiArt.addEmoji("😀", at: (-200, -100), size: 80)
+//        emojiArt.addEmoji("😷", at: (50, 100), size: 40)
     }
     
     var emojis: [EmojiArtModel.Emoji] { emojiArt.emojis }
     var background: EmojiArtModel.Background { emojiArt.background }
+    
+    // MARK: - Background
     
     @Published var backgroundImage: UIImage?
     @Published var backgroundImageFetchStatus = BackgroundImageFetchStatus.idle
@@ -62,7 +64,6 @@ class EmojiArtDocument: ObservableObject
     
     func setBackground(_ background: EmojiArtModel.Background) {
         emojiArt.background = background
-        print("background set to \(background)")
     }
     
     func addEmoji(_ emoji: String, at location: (x: Int, y: Int), size: CGFloat) {

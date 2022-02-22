@@ -47,6 +47,8 @@ struct EmojiArtDocumentView: View {
         }
     }
     
+    // MARK: - Drag and Drop
+    
     private func drop(providers: [NSItemProvider], at location: CGPoint, in geometry: GeometryProxy) -> Bool {
         var found = providers.loadObjects(ofType: URL.self) { url in
             document.setBackground(.url(url.imageURL))
@@ -71,6 +73,8 @@ struct EmojiArtDocumentView: View {
         }
         return found
     }
+    
+    // MARK: - Positioning/Sizing Emoji
     
     private func position(for emoji: EmojiArtModel.Emoji, in geometry: GeometryProxy) -> CGPoint {
         convertFromEmojiCoordinates((emoji.x, emoji.y), in: geometry)
@@ -97,22 +101,7 @@ struct EmojiArtDocumentView: View {
         CGFloat(emoji.size)
     }
     
-    @State private var steadyStatePanOffset: CGSize = CGSize.zero
-    @GestureState private var gesturePanOffset: CGSize = CGSize.zero
-    
-    private var panOffset: CGSize {
-        (steadyStatePanOffset + gesturePanOffset) * zoomScale
-    }
-    
-    private func panGesture() -> some Gesture {
-        DragGesture()
-            .updating($gesturePanOffset) { latestDragGestureValue, gesturePanOffset, _ in
-                gesturePanOffset = latestDragGestureValue.translation / zoomScale
-            }
-            .onEnded { finalDragGestureValue in
-                steadyStatePanOffset = steadyStatePanOffset + (finalDragGestureValue.translation / zoomScale)
-            }
-    }
+    // MARK: - Zooming
     
     @State private var steadyStateZoomScale: CGFloat = 1
     @GestureState private var gestureZoomScale: CGFloat = 1
@@ -149,6 +138,27 @@ struct EmojiArtDocumentView: View {
         }
     }
     
+    // MARK: - Panning
+    
+    @State private var steadyStatePanOffset: CGSize = CGSize.zero
+    @GestureState private var gesturePanOffset: CGSize = CGSize.zero
+    
+    private var panOffset: CGSize {
+        (steadyStatePanOffset + gesturePanOffset) * zoomScale
+    }
+    
+    private func panGesture() -> some Gesture {
+        DragGesture()
+            .updating($gesturePanOffset) { latestDragGestureValue, gesturePanOffset, _ in
+                gesturePanOffset = latestDragGestureValue.translation / zoomScale
+            }
+            .onEnded { finalDragGestureValue in
+                steadyStatePanOffset = steadyStatePanOffset + (finalDragGestureValue.translation / zoomScale)
+            }
+    }
+    
+    // MARK: - Palette
+    
     var palette: some View {
         ScrollingEmojisView(emojis: testEmojis)
             .font(.system(size: defaultEmojiFontSize))
@@ -171,26 +181,6 @@ struct ScrollingEmojisView: View {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
