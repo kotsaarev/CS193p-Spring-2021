@@ -3,6 +3,7 @@
 //  EmojiArt
 //
 //  Created by Konstantin Kotsarev on 14.02.2022.
+//  Copyright © 2022 Konstantin Kotsarev. All rights reserved.
 //
 
 import SwiftUI
@@ -48,6 +49,7 @@ struct EmojiArtDocumentView: View {
                 // return Alert
                 alertToShow.alert()
             }
+            // L12 monitor fetch status and alert user if fetch failed
             .onChange(of: document.backgroundImageFetchStatus) { status in
                 switch status {
                 case .failed(let url):
@@ -59,8 +61,10 @@ struct EmojiArtDocumentView: View {
         }
     }
     
+    // L12 state which says whether a certain identifiable alert should be showing
     @State private var alertToShow: IdentifiableAlert?
     
+    // L12 sets alertToShow to an IdentifiableAlert explaining a url fetch failure
     private func showBackgroundImageFetchFailedAlert(_ url: URL) {
         alertToShow = IdentifiableAlert(id: "fetch failed: " + url.absoluteString, alert: {
             Alert(
@@ -104,6 +108,10 @@ struct EmojiArtDocumentView: View {
         convertFromEmojiCoordinates((emoji.x, emoji.y), in: geometry)
     }
     
+    private func fontSize(for emoji: EmojiArtModel.Emoji) -> CGFloat {
+        CGFloat(emoji.size)
+    }
+    
     private func convertToEmojiCoordinates(_ location: CGPoint, in geometry: GeometryProxy) -> (x: Int, y: Int) {
         let center = geometry.frame(in: .local).center
         let location = CGPoint(
@@ -121,10 +129,6 @@ struct EmojiArtDocumentView: View {
         )
     }
     
-    private func fontSize(for emoji: EmojiArtModel.Emoji) -> CGFloat {
-        CGFloat(emoji.size)
-    }
-    
     // MARK: - Zooming
     
     @State private var steadyStateZoomScale: CGFloat = 1
@@ -136,7 +140,7 @@ struct EmojiArtDocumentView: View {
     
     private func zoomGesture() -> some Gesture {
         MagnificationGesture()
-            .updating($gestureZoomScale) { latestGestureScale, gestureZoomScale, transaction in
+            .updating($gestureZoomScale) { latestGestureScale, gestureZoomScale, _ in
                 gestureZoomScale = latestGestureScale
             }
             .onEnded { gestureScaleAtEnd in
@@ -181,6 +185,27 @@ struct EmojiArtDocumentView: View {
             }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

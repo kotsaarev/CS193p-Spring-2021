@@ -3,6 +3,7 @@
 //  EmojiArt
 //
 //  Created by Konstantin Kotsarev on 14.02.2022.
+//  Copyright © 2022 Konstantin Kotsarev. All rights reserved.
 //
 
 import SwiftUI
@@ -62,8 +63,8 @@ class EmojiArtDocument: ObservableObject
             fetchBackgroundImageDataIfNecessary()
         } else {
             emojiArt = EmojiArtModel()
-//            emojiArt.addEmoji("😀", at: (-200, -100), size: 80)
-//            emojiArt.addEmoji("😷", at: (50, 100), size: 40)
+    //        emojiArt.addEmoji("😀", at: (-200, -100), size: 80)
+    //        emojiArt.addEmoji("😷", at: (50, 100), size: 40)
         }
     }
     
@@ -78,7 +79,7 @@ class EmojiArtDocument: ObservableObject
     enum BackgroundImageFetchStatus: Equatable {
         case idle
         case fetching
-        case failed(URL)
+        case failed(URL) // L12 added
     }
     
     private func fetchBackgroundImageDataIfNecessary() {
@@ -95,6 +96,7 @@ class EmojiArtDocument: ObservableObject
                         if imageData != nil {
                             self?.backgroundImage = UIImage(data: imageData!)
                         }
+                        // L12 note failure if we couldn't load background image
                         if self?.backgroundImage == nil {
                             self?.backgroundImageFetchStatus = .failed(url)
                         }

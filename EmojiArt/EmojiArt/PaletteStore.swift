@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// L11 a simple, persistent storage place for Palettes
+
 struct Palette: Identifiable, Codable, Hashable {
     var name: String
     var emojis: String
@@ -56,7 +58,6 @@ class PaletteStore: ObservableObject{
         self.name = name
         restoreFromUserDefaults()
         if palettes.isEmpty {
-            print ("using built-in palettes")
             insertPalette(named: "Vehicles", emojis: "🚙🚗🚘🚕🚖🏎🚚🛻🚛🚐🚓🚔🚑🚒🚀✈️🛫🛬🛩🚁🛸🚲🏍🛶⛵️🚤🛥🛳⛴🚢🚂🚝🚅🚆🚊🚉🚇🛺🚜")
             insertPalette(named: "Sports", emojis: "🏈⚾️🏀⚽️🎾🏐🥏🏓⛳️🥅🥌🏂⛷🎳")
             insertPalette(named: "Music", emojis: "🎼🎤🎹🪘🥁🎺🪗🪕🎻")
@@ -66,8 +67,6 @@ class PaletteStore: ObservableObject{
             insertPalette(named: "Weather", emojis: "☀️🌤⛅️🌥☁️🌦🌧⛈🌩🌨❄️💨☔️💧💦🌊☂️🌫🌪")
             insertPalette(named: "COVID", emojis: "💉🦠😷🤧🤒")
             insertPalette(named: "Faces", emojis: "😀😃😄😁😆😅😂🤣🥲☺️😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🥸🤩🥳😏😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😤😠😡🤯😳🥶😥😓🤗🤔🤭🤫🤥😬🙄😯😧🥱😴🤮😷🤧🤒🤠")
-        } else {
-            print("successfully loaded palettes from UserDefaults: \(palettes)")
         }
     }
     

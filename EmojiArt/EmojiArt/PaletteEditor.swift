@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// L12 a View which edits the info in a bound-to Palette
+
 struct PaletteEditor: View {
     @Binding var palette: Palette
     
@@ -66,8 +68,8 @@ struct PaletteEditor: View {
 struct PaletteEditor_Previews: PreviewProvider {
     static var previews: some View {
         PaletteEditor(palette: .constant(PaletteStore(named: "Preview").palette(at: 4)))
-            .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/300.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/350.0/*@END_MENU_TOKEN@*/))
+            .previewLayout(.fixed(width: 300, height: 350))
         PaletteEditor(palette: .constant(PaletteStore(named: "Preview").palette(at: 2)))
-            .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/300.0/*@END_MENU_TOKEN@*/, height: 600.0))
+            .previewLayout(.fixed(width: 300, height: 600))
     }
 }

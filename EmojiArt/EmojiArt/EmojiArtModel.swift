@@ -3,6 +3,7 @@
 //  EmojiArt
 //
 //  Created by Konstantin Kotsarev on 14.02.2022.
+//  Copyright © 2022 Konstantin Kotsarev. All rights reserved.
 //
 
 import Foundation
