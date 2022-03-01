@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// L11 a simple, persistent storage place for Palettes
-
 struct Palette: Identifiable, Codable, Hashable {
     var name: String
     var emojis: String
@@ -21,7 +19,7 @@ struct Palette: Identifiable, Codable, Hashable {
     }
 }
 
-class PaletteStore: ObservableObject{
+class PaletteStore: ObservableObject {
     let name: String
     
     @Published var palettes = [Palette]() {
@@ -31,7 +29,7 @@ class PaletteStore: ObservableObject{
     }
     
     private var userDefaultsKey: String {
-        "PaletteStore" + name
+        "PaletteStore:" + name
     }
     
     private func storeInUserDefaults() {

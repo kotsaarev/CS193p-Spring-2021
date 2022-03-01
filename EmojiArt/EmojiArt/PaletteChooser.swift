@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// L12 the main View of the Palette-choosing MVVM at the bottom of the screen
-
 struct PaletteChooser: View {
     var emojiFontSize: CGFloat = 40
     var emojiFont: Font { .system(size: emojiFontSize) }
@@ -116,6 +114,7 @@ struct ScrollingEmojisView: View {
             }
         }
     }
+
 }
 
 struct PaletteChooser_Previews: PreviewProvider {

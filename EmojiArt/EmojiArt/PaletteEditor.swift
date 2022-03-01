@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// L12 a View which edits the info in a bound-to Palette
-
 struct PaletteEditor: View {
     @Binding var palette: Palette
     
@@ -34,12 +32,12 @@ struct PaletteEditor: View {
         Section(header: Text("Add Emojis")) {
             TextField("", text: $emojisToAdd)
                 .onChange(of: emojisToAdd) { emojis in
-                    addEmoji(emojis)
+                    addEmojis(emojis)
                 }
         }
     }
     
-    func addEmoji(_ emojis: String) {
+    func addEmojis(_ emojis: String) {
         withAnimation {
             palette.emojis = (emojis + palette.emojis)
                 .filter { $0.isEmoji }
