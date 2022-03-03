@@ -91,14 +91,14 @@
 		053A2AF527D0BA1400E84942 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				053A2AF627D0BA1400E84942 /* EmojiArtApp.swift */,
-				053A2AF727D0BA1400E84942 /* EmojiArtDocument.swift */,
 				053A2B3B27D0BB7F00E84942 /* EmojiArtDocumentView.swift */,
-				053A2B4027D0BB8100E84942 /* EmojiArtModel.Background.swift */,
-				053A2B3F27D0BB8100E84942 /* EmojiArtModel.swift */,
 				053A2B4527D0BB8200E84942 /* PaletteChooser.swift */,
 				053A2B3C27D0BB8000E84942 /* PaletteEditor.swift */,
 				053A2B4327D0BB8200E84942 /* PaletteStore.swift */,
+				053A2AF627D0BA1400E84942 /* EmojiArtApp.swift */,
+				053A2AF727D0BA1400E84942 /* EmojiArtDocument.swift */,
+				053A2B4027D0BB8100E84942 /* EmojiArtModel.Background.swift */,
+				053A2B3F27D0BB8100E84942 /* EmojiArtModel.swift */,
 				053A2B4127D0BB8100E84942 /* UtilityExtensions.swift */,
 				053A2B4427D0BB8200E84942 /* UtilityViews.swift */,
 				053A2AF927D0BA1A00E84942 /* Assets.xcassets */,
@@ -119,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				053A2B0127D0BA1A00E84942 /* Info.plist */,
-				053A2B3D27D0BB8000E84942 /* PhotoLibrary.swift */,
 				053A2B3E27D0BB8100E84942 /* Camera.swift */,
+				053A2B3D27D0BB8000E84942 /* PhotoLibrary.swift */,
 				053A2B4227D0BB8100E84942 /* PaletteManager.swift */,
 				053A2B5F27D0C26E00E84942 /* iOS.swift */,
 			);

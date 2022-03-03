@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// L16 Moved to iOS-only on multiplatform version
+
 struct PaletteManager: View {
     @EnvironmentObject var store: PaletteStore
     @Environment(\.presentationMode) var presentationMode

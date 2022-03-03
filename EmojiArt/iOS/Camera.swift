@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// L15 UIKit's UIImagePickerController adapted to SwiftUI
+// L16 Moved to iOS-only on multiplatform version
+
 struct Camera: UIViewControllerRepresentable {
     var handlePickedImage: (UIImage?) -> Void
     
