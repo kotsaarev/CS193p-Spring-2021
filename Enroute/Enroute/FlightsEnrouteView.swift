@@ -81,6 +81,7 @@ struct FlightList: View {
                 FlightListEntry(flight: flight)
             }
         }
+        .listStyle(PlainListStyle())
         .navigationBarTitle(title)
     }
     
